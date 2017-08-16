@@ -4,8 +4,8 @@ colnames(dat1) <- c("Date", "Time", "Global.active.power", "Global.reactive.powe
                     "Voltage", "Global.intensity", "Sub.metering.1",
                     "Sub.metering.2", "Sub.metering.3")
 
-tmp <- paste(dat1$Date, dat1$Time, sep= " ")
-dat1$Dtclass <- strptime(tmp, format = "%d/%m/%Y %S:%M:%H")
+tmp <- paste(dat1$Date, dat1$Time)
+dat1$Dtclass <- strptime(tmp, format = "%d/%m/%Y %H:%M:%S")
 
 hist(dat1[, "Global.active.power"], col="red", 
      xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
